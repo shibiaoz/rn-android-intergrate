@@ -15,7 +15,7 @@ import DetailPage from './pages/detail'
 const tabNavigatorConfig = {
     tabBarComponent: TabBarBottom,
     tabBarPosition: 'bottom',
-    swipeEnabled: false,
+    swipeEnabled: true,
     animationEnabled: true,
     lazy: true,
     tabBarOptions: {

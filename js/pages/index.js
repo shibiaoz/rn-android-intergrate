@@ -10,7 +10,7 @@ import MyThemeConfig from '../utils/theme'
 import HotPanel from '../components/hotpanel/hotpanel'
 import HomeList from '../components/homelist/homelist'
 export default class IndexPage extends  Component {
-    static reqUrl = 'http://100.66.152.140:8000/homelist.json';
+    static reqUrl = 'http://192.168.1.107:8000/homelist.json';
     static navigationOptions = {
         title: '首页',
         headerStyle: MyThemeConfig.headerStyle,

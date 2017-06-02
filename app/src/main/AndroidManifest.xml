@@ -7,6 +7,9 @@
     <!--/*用于显示悬浮窗*/-->
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
 
+    <!--调用电话权限-->
+    <uses-permission android:name="android.permission.CALL_PHONE"></uses-permission>
+
     <application
         android:name=".MainApplication"
         android:allowBackup="true"
