@@ -4,13 +4,14 @@
 
 
 import React , { Component } from 'react'
-import {Image, View, Text } from 'react-native'
-
-
+import {Image, View, Text, Dimensions} from 'react-native'
+import MyThemeConfig from '../utils/theme'
 export default  class SettingPage extends  Component {
 
-    static  navigationOptions = {
-        title: 'Setting page'
+    static navigationOptions = {
+        title: '设置',
+        headerStyle: MyThemeConfig.headerStyle,
+        headerTitleStyle: MyThemeConfig.headerTitleStyle
     }
 
     constructor(props) {

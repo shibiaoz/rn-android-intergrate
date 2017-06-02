@@ -4,13 +4,14 @@
  * wraper app navigation use react-navigation lib
  *
  */
-import React, { Component } from 'react';
-import { TabNavigator, TabBarBottom, StackNavigator }  from 'react-navigation';
-import IndexPage from './pages/index';
-import DiscoverPage from './pages/discovery';
-import MessagePage from './pages/message';
-import MePage from './pages/me';
-import SettingPage from './pages/setting';
+import React, { Component } from 'react'
+import { TabNavigator, TabBarBottom, StackNavigator }  from 'react-navigation'
+import IndexPage from './pages/index'
+import DiscoverPage from './pages/discovery'
+import MessagePage from './pages/message'
+import MePage from './pages/me'
+import SettingPage from './pages/setting'
+import DetailPage from './pages/detail'
 const tabNavigatorConfig = {
     tabBarComponent: TabBarBottom,
     tabBarPosition: 'bottom',
@@ -58,6 +59,9 @@ const NavigationApp = StackNavigator({
     },
     Setting: {
         screen: SettingPage
+    },
+    Detail: {
+        screen: DetailPage
     }
 });
 
