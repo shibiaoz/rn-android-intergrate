@@ -12,7 +12,7 @@ import {
 } from 'react-native'
 import ImageSources from '../imagelibs'
 import MyThemeConfig from '../utils/theme'
-
+import  MyTextView from '../components/myrntext/myrntext'
 const MyRnModulel = NativeModules.MyRnModule;
 
 export default class DiscoveryPage extends  Component {
@@ -69,6 +69,12 @@ export default class DiscoveryPage extends  Component {
             );
     }
 
+    _onChange(event) {
+        var nativeEvent = event.nativeEvent;
+        console.log(11)
+        alert(JSON.stringify(nativeEvent));
+    }
+
     render() {
         return (
             <View  style={{flex:1}}>
@@ -84,7 +90,7 @@ export default class DiscoveryPage extends  Component {
                  </TouchableNativeFeedback>
                 <TouchableNativeFeedback onPress={this.invokeNativePhonePlugin}>
                     <View style={[{flex:1,height:50, },styles.item]}>
-                        <Text>n调用native 拨打天花-callPhone</Text>
+                        <Text>n调用native 拨打天花-callPhone， 确保app权限是否打开</Text>
                     </View>
                 </TouchableNativeFeedback>
                 <TouchableNativeFeedback onPress={this.invokeNativeCallback}>
@@ -97,6 +103,19 @@ export default class DiscoveryPage extends  Component {
                         <Text>rn调用native plugin, rnCallNativeFromPromiseBack</Text>
                     </View>
                 </TouchableNativeFeedback>
+                <View style={[{flex:1,height:50, },styles.item]}>
+                    <Text>下面为自定义textview</Text>
+                </View>
+                <View style={[{flex:1,height:50, },styles.item]}>
+                    <Text>下面为自定义textview</Text>
+                    <MyTextView
+                        text="我是MyRnText"
+                        style={{width:100,height:100}}
+                        textSize={15}
+                        isAlpha={false}
+                        onChange={this._onChange}
+                    ></MyTextView>
+                </View>
             </View>
         );
     }

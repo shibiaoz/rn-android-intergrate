@@ -7,11 +7,12 @@ import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.uimanager.ViewManager;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
 /**
- * Created by zhangshibiao on 2017/6/2.
+ * Created by knight on 2017/6/2.
  */
 
 public class MyRnPackage implements ReactPackage {
@@ -31,7 +32,12 @@ public class MyRnPackage implements ReactPackage {
 
     @Override
     public List<ViewManager> createViewManagers(ReactApplicationContext reactContext) {
-        // 这里默认返回null
-        return Collections.emptyList();
+        // 这里默认返回null, 如果没有自定义的native view 就返回Collections.emptyList();
+//        return Collections.emptyList();
+        return Arrays.<ViewManager>asList(
+                new MyRnText()
+        );
+
     }
+
 }

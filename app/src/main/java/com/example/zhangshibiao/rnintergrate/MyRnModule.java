@@ -12,7 +12,7 @@ import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.modules.core.DeviceEventManagerModule;
 
 /**
- * Created by zhangshibiao on 2017/6/2.
+ * Created by knight on 2017/6/2.
  */
 
 public class MyRnModule extends ReactContextBaseJavaModule {
