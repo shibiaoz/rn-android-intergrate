@@ -71,8 +71,8 @@ export default class DiscoveryPage extends  Component {
 
     _onChange(event) {
         var nativeEvent = event.nativeEvent;
-        console.log(11)
-        alert(JSON.stringify(nativeEvent));
+        alert(11)
+//        alert(JSON.stringify(nativeEvent));
     }
 
     render() {

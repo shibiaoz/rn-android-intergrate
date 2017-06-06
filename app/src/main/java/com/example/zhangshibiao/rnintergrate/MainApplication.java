@@ -8,8 +8,11 @@ import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
 import com.facebook.soloader.SoLoader;
 
+import java.io.File;
 import java.util.Arrays;
 import java.util.List;
+
+import javax.annotation.Nullable;
 
 public class MainApplication extends Application implements ReactApplication {
 
@@ -35,6 +38,23 @@ public class MainApplication extends Application implements ReactApplication {
           new MyRnPackage()
       );
     }
+
+      /**
+       * 返回rn 执行js 的入口文件
+       * @return
+       */
+      @Nullable
+      @Override
+      protected String getJSBundleFile() {
+          File file = new File(FileConstant.JS_BUNDLE_LOCAL_PATH);
+          if(file != null && file.exists()) {
+                return FileConstant.JS_BUNDLE_LOCAL_PATH;
+          } else {
+              // 默认返回
+              return super.getJSBundleFile();
+          }
+
+      }
   };
 
   @Override
