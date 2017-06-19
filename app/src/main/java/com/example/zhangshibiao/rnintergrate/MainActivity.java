@@ -8,9 +8,12 @@ import android.content.IntentFilter;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+
+import com.example.zhangshibiao.service.MyService;
 
 import java.io.File;
 
@@ -19,6 +22,11 @@ public class MainActivity extends AppCompatActivity {
 
     private Button btn;
     private Button downloadBtn;
+    private Button openWebviewBtn;
+    private Button startServiceBtn;
+    private Button endServiceBtn;
+    private Button bindServiceBtn;
+    private Button unbindServiceBtn;
     private long mDownLoadId;
     private CompleteReceiver localReceiver;
     @Override
@@ -44,7 +52,56 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        openWebviewBtn = (Button) findViewById(R.id.openWebviewBtn);
+        openWebviewBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, MyWebViewActivity.class);
+                startActivity(intent);
+            }
+        });
+
         registeReceiver();
+        serviceTestMethod();
+    }
+
+    private void serviceTestMethod() {
+
+        startServiceBtn = (Button) findViewById(R.id.startServiceBtn);
+        endServiceBtn = (Button) findViewById(R.id.endServiceBtn);
+        bindServiceBtn = (Button) findViewById(R.id.bindServiceBtn);
+        unbindServiceBtn = (Button) findViewById(R.id.unbindServiceBtn);
+
+        startServiceBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, MyService.class);
+                startService(intent);
+            }
+        });
+
+        endServiceBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, MyService.class);
+                stopService(intent);
+            }
+        });
+
+
+        bindServiceBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
+        unbindServiceBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
     }
 
     private void registeReceiver() {
@@ -62,6 +119,7 @@ public class MainActivity extends AppCompatActivity {
     public void downloadBundle() {
         File zipFile = new File(FileConstant.JS_PATCH_LOCAL_PATH);
         if(zipFile != null || zipFile.exists()) {
+            Log.d("zipFile","---");
             zipFile.delete();
         }
         DownloadManager downloadManager =  (DownloadManager)getSystemService(Context.DOWNLOAD_SERVICE);
@@ -70,12 +128,14 @@ public class MainActivity extends AppCompatActivity {
         request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_HIDDEN);
         request.setAllowedNetworkTypes(DownloadManager.Request.NETWORK_MOBILE| DownloadManager.Request.NETWORK_WIFI);
         request.setDestinationUri(Uri.parse("file://"+ FileConstant.JS_PATCH_LOCAL_PATH));
+        Log.d("destinationurl","file://"+ FileConstant.JS_PATCH_LOCAL_PATH);
         mDownLoadId = downloadManager.enqueue(request);
     }
 
     private class CompleteReceiver extends BroadcastReceiver {
         @Override
         public void onReceive(Context context, Intent intent) {
+            Log.d("download","success");
             long completeId = intent.getLongExtra(DownloadManager.EXTRA_DOWNLOAD_ID,-1);
             if(completeId == mDownLoadId) {
                 Toast.makeText(MainActivity.this, "下载成功", Toast.LENGTH_SHORT).show();

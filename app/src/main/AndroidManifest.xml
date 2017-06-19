@@ -2,24 +2,18 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.zhangshibiao.rnintergrate">
 
-    <!--用于开发调试-->
+    <!-- 用于开发调试 -->
     <uses-permission android:name="android.permission.INTERNET" />
-    <!--/*用于显示悬浮窗*/-->
-    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <!-- /*用于显示悬浮窗*/ -->
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
-    <!--调用电话权限-->
-    <uses-permission android:name="android.permission.CALL_PHONE"></uses-permission>
+    <!-- 调用电话权限 -->
+    <uses-permission android:name="android.permission.CALL_PHONE" />
 
-    <!--下载权限-->
-    <uses-permission
-        android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION" />
-    <!--存储权限-->
-    <uses-permission
-        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
-        >
-    </uses-permission>
-
-
+    <!-- 下载权限 -->
+    <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION" />
+    <!-- 存储权限 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:name=".MainApplication"
@@ -35,8 +29,22 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".HelloActivity"></activity>
+        <activity android:name=".HelloActivity" />
         <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
+        <activity android:name=".IntentDemoActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <!-- BROWSABLE指定该Activity能被浏览器安全调用 -->
+                <category android:name="android.intent.category.BROWSABLE" />
+                <!-- 声明自定义scheme，类似于http, https -->
+                <data android:scheme="hoho" />
+                <!-- <data android:host="www.thejoyrun.com" android:scheme="http"></data> -->
+            </intent-filter>
+        </activity>
+        <activity android:name=".MyWebViewActivity"></activity>
+        <service android:name="com.example.zhangshibiao.service.MyService"></service>
     </application>
 
 </manifest>

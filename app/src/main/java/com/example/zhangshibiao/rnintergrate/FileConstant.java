@@ -65,6 +65,6 @@ public class FileConstant {
      * 下载URL
      */
     //http://100.66.153.115:8000/wan.zip
-    public static final String JS_BUNDLE_REMOTE_URL = "http://100.66.153.115:8000/"+ZIP_NAME+".zip";
+    public static final String JS_BUNDLE_REMOTE_URL = "http://100.66.154.232:8000/"+ZIP_NAME+".zip";
 
 }

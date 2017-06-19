@@ -53,8 +53,8 @@ public class MainApplication extends Application implements ReactApplication {
               // 默认返回
               return super.getJSBundleFile();
           }
-
       }
+
   };
 
   @Override

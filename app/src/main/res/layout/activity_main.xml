@@ -27,4 +27,35 @@
         android:text="执行下载"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/openWebviewBtn"
+        android:text="打开webview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/startServiceBtn"
+        android:text="启动servirce"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+    <Button
+        android:id="@+id/endServiceBtn"
+        android:text="停止servirce"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/bindServiceBtn"
+        android:text="绑定servirce"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/unbindServiceBtn"
+        android:text="接绑servirce"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 </LinearLayout>

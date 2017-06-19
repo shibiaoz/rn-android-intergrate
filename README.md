@@ -20,3 +20,4 @@ react-native bundle --platform android --dev false --entry-file index.android.js
 ## refrence
 - [原生插件封装参考](http://www.lcode.org/react-native%E8%BF%9B%E9%98%B6%E4%B9%8B%E5%8E%9F%E7%94%9F%E6%A8%A1%E5%9D%97%E7%BB%84%E4%BB%B6%E5%B0%81%E8%A3%85%E5%9F%BA%E7%A1%80%E7%AF%871-%E9%80%82/)
 - [React Native与Android原生通信交互详情](http://www.lcode.org/react-native-android/)
+- [hot update](http://www.lcode.org/react-native-hot-update/)

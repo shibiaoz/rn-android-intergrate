@@ -82,6 +82,7 @@ export default class IndexPage extends  Component {
     }
 
     render() {
+        alert(11);
         return (
             <ScrollView
                 horizontal={false}
